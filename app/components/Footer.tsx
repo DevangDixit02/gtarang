@@ -6,10 +6,10 @@ const Footer = () => {
       <div className="container-custom py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Gtarang Energy Solutions</h3>
+            <h3 className="text-xl font-bold mb-4">GTarang Technologies</h3>
             <p className="text-gray-300 mb-4">
-              Providing cutting-edge tech consulting services for energy solutions
-              and innovative technological implementations.
+              Providing expert consulting in Robotics, AI, Warehouse Automation,
+              and Satellite Technologies for innovative business solutions.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-white transition-colors">
@@ -44,13 +44,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="text-gray-300 hover:text-white transition-colors">
-                  Pricing
+                <Link href="/ai-solutions" className="text-gray-300 hover:text-white transition-colors">
+                  AI Solutions
                 </Link>
               </li>
               <li>
-                <Link href="/ai-solutions" className="text-gray-300 hover:text-white transition-colors">
-                  AI Solutions
+                <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -60,23 +60,23 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/services#consulting" className="text-gray-300 hover:text-white transition-colors">
-                  Tech Consulting
+                <Link href="/services#robotics" className="text-gray-300 hover:text-white transition-colors">
+                  Robotics Consulting
                 </Link>
               </li>
               <li>
-                <Link href="/services#energy" className="text-gray-300 hover:text-white transition-colors">
-                  Energy Solutions
+                <Link href="/services#ai-ml" className="text-gray-300 hover:text-white transition-colors">
+                  AI Consulting
                 </Link>
               </li>
               <li>
-                <Link href="/services#digital" className="text-gray-300 hover:text-white transition-colors">
-                  Digital Transformation
+                <Link href="/services#warehouse" className="text-gray-300 hover:text-white transition-colors">
+                  Warehouse Automation
                 </Link>
               </li>
               <li>
-                <Link href="/services#ai" className="text-gray-300 hover:text-white transition-colors">
-                  AI Implementation
+                <Link href="/services#satellite" className="text-gray-300 hover:text-white transition-colors">
+                  Satellite Technology
                 </Link>
               </li>
             </ul>
@@ -84,18 +84,20 @@ const Footer = () => {
           
           <div>
             <h3 className="text-xl font-bold mb-4">Contact</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <svg className="h-6 w-6 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18.16A8.16,8.16,0,1,1,20.16,12,8.16,8.16,0,0,1,12,20.16Zm1-1.74a1,1,0,0,1-2,0V12a1,1,0,0,1,1-1h3a1,1,0,0,1,0,2H12Z"/>
+                  <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm3.41,12.42A3.28,3.28,0,0,1,12,16.58,3.28,3.28,0,0,1,8.59,14.4a13.38,13.38,0,0,1-.59-4.4,13.38,13.38,0,0,1,.59-4.38A3.25,3.25,0,0,1,12,3.42a3.28,3.28,0,0,1,3.41,2.22,13.38,13.38,0,0,1,.59,4.38A13.38,13.38,0,0,1,15.41,14.42Zm-2.18-3H10.77V12H8.54a1,1,0,0,0,0,2h1.23v3.9a1,1,0,0,0,2,0V14h1.46a1,1,0,0,0,0-2H11.77V9.42h1.46a1,1,0,0,0,0-2H10.77a1,1,0,0,0,0,2h0Z"/>
                 </svg>
                 <span className="text-gray-300">
-                  Mon-Fri: 9:00 AM - 6:00 PM
+                  Flat 702, Balaji Residency<br />
+                  Sec-15, Kharghar, Raigarh<br />
+                  Maharashtra - 410210
                 </span>
               </li>
               <li className="flex items-start space-x-3">
                 <svg className="h-6 w-6 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2.39,13.35a.9.9,0,0,1-.39.07.92.92,0,0,1-.44-.11.89.89,0,0,1-.36-.31l-1.56-2a.92.92,0,1,1,1.44-1.13l1.09,1.39,2.78-3.56a.92.92,0,0,1,1.29-.15.93.93,0,0,1,.15,1.29l-3.16,4A.9.9,0,0,1,14.39,15.35ZM3.42,11.08a.93.93,0,0,1,1-1.57,4.85,4.85,0,0,1,2-1.67A4.86,4.86,0,0,1,12,8.42a4.87,4.87,0,0,1,4.88-1.49.94.94,0,0,1-.35,1.84,3,3,0,1,0,2.93,3.14.94.94,0,0,1,1.87-.16,4.88,4.88,0,0,1-8.17,3.71,4.89,4.89,0,0,1-7.74-4.38Z"/>
+                  <path d="M19,4H5A3,3,0,0,0,2,7V17a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm-.41,2-5.88,5.88a1,1,0,0,1-1.42,0L5.41,6ZM20,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V7.41l5.88,5.88a3,3,0,0,0,4.24,0L20,7.41Z"/>
                 </svg>
                 <span className="text-gray-300">
                   info@gtarangenergy.com
@@ -106,7 +108,7 @@ const Footer = () => {
                   <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18.16A8.16,8.16,0,1,1,20.16,12,8.16,8.16,0,0,1,12,20.16Zm3.33-3.73a4.33,4.33,0,0,1-6.66,0,4.33,4.33,0,0,1,0-6.66,4.33,4.33,0,0,1,6.66,0A4.33,4.33,0,0,1,15.33,16.43Zm-.94-5.72a3.47,3.47,0,0,0-4.78,0,3.47,3.47,0,0,0,0,4.78,3.47,3.47,0,0,0,4.78,0A3.47,3.47,0,0,0,14.39,10.71Z"/>
                 </svg>
                 <span className="text-gray-300">
-                  +1 (123) 456-7890
+                  +91 8879476341
                 </span>
               </li>
             </ul>
@@ -115,7 +117,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            &copy; {new Date().getFullYear()} Gtarang Energy Solutions. All rights reserved.
+            &copy; {new Date().getFullYear()} GTarang Technologies. All rights reserved.
           </p>
         </div>
       </div>

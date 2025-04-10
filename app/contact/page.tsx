@@ -42,12 +42,7 @@ export default function Contact() {
       const data = await response.json();
       
       if (!response.ok) {
-        // Handle specific error messages from the API
-        const errorMsg = data.error || 'Failed to submit form';
-        console.error('API error response:', data);
-        setError(errorMsg);
-        setIsSubmitting(false);
-        return;
+        throw new Error(data.error || 'Failed to submit form');
       }
       
       setIsSubmitted(true);
@@ -73,37 +68,19 @@ export default function Contact() {
       <div className="container-custom">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="mb-6 flex justify-center">
-            <div className="inline-block relative">
-              <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-orange-500 opacity-30"></div>
-              <div className="absolute -bottom-4 -right-4 w-12 h-12 rounded-full bg-green-500 opacity-30"></div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 relative z-10">
-                Get in Touch
-              </h1>
-            </div>
-          </div>
-          <div className="flex items-center justify-center mb-6">
-            <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent w-16"></div>
-            <div className="mx-4">
-              <svg className="w-6 h-6 text-gtarang-blue" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M16.9,15.5l-1.4,1.4L12,13.4l-3.5,3.5 l-1.4-1.4l3.5-3.5L7.1,8.5l1.4-1.4l3.5,3.5l3.5-3.5l1.4,1.4L13.4,12L16.9,15.5z"/>
-              </svg>
-            </div>
-            <div className="h-px bg-gradient-to-r from-gray-400 via-transparent to-transparent w-16"></div>
-          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Get in Touch
+          </h1>
           <p className="text-xl text-gray-600">
-            Have questions about our services? Ready to transform your energy business?
-            Our team is here to help you harness sustainable solutions for your needs.
+            Have questions about our services? Ready to transform your business with our tech solutions?
+            Our team is here to help.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 lg:gap-20 mb-20">
           {/* Contact Form */}
           <div>
-            <h2 className="text-2xl font-bold mb-6 relative inline-block">
-              Send Us a Message
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-india-orange to-india-green"></div>
-            </h2>
+            <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
             
             {isSubmitted ? (
               <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
@@ -125,7 +102,7 @@ export default function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5 bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 {error && (
                   <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
                     <div className="flex items-center space-x-3">
@@ -139,7 +116,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
-                      Your Name <span className="text-red-500">*</span>
+                      Your Name *
                     </label>
                     <input
                       type="text"
@@ -148,12 +125,12 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-india-blue focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gtarang-blue"
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-                      Email Address <span className="text-red-500">*</span>
+                      Email Address *
                     </label>
                     <input
                       type="email"
@@ -162,36 +139,38 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-india-blue focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gtarang-blue"
                     />
                   </div>
                 </div>
                 
-                <div>
-                  <label htmlFor="company" className="block text-gray-700 font-medium mb-2">
-                    Company Name
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-india-blue focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-india-blue focus:border-transparent"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label htmlFor="company" className="block text-gray-700 font-medium mb-2">
+                      Company Name
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gtarang-blue"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gtarang-blue"
+                    />
+                  </div>
                 </div>
                 
                 <div>
@@ -203,12 +182,13 @@ export default function Contact() {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-india-blue focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gtarang-blue"
                   >
                     <option value="">Select a service</option>
-                    <option value="energy-efficiency">Energy Efficiency Consulting</option>
-                    <option value="digital-transformation">Digital Transformation</option>
+                    <option value="robotics">Robotics Consulting</option>
                     <option value="ai-solutions">AI & Machine Learning</option>
+                    <option value="warehouse-automation">Warehouse Automation</option>
+                    <option value="satellite-tech">Satellite Technology</option>
                     <option value="custom-project">Custom Project</option>
                     <option value="other">Other</option>
                   </select>
@@ -216,7 +196,7 @@ export default function Contact() {
                 
                 <div>
                   <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
-                    Your Message <span className="text-red-500">*</span>
+                    Your Message *
                   </label>
                   <textarea
                     id="message"
@@ -225,19 +205,17 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-india-blue focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gtarang-blue"
                   ></textarea>
                 </div>
                 
-                <div>
+                <div className="pt-2">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`px-6 py-3 rounded-md text-white font-medium transition-colors w-full md:w-auto
-                      ${isSubmitting 
-                        ? 'bg-gray-400 cursor-not-allowed' 
-                        : 'bg-gradient-to-r from-india-blue to-gtarang-blue hover:from-gtarang-blue hover:to-india-blue'
-                      }`}
+                    className={`btn btn-primary py-3 px-8 w-full md:w-auto ${
+                      isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
+                    }`}
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
@@ -250,7 +228,7 @@ export default function Contact() {
           <div>
             <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
             
-            <div className="bg-gray-50 rounded-lg p-6 mb-8 border-l-4 border-gtarang-green">
+            <div className="bg-gray-50 rounded-lg p-6 mb-8">
               <div className="space-y-5">
                 <div className="flex items-start space-x-4">
                   <div className="bg-gtarang-blue text-white p-3 rounded-full">
@@ -260,7 +238,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Phone</h3>
-                    <p className="text-gray-600">+91 98765 43210</p>
+                    <p className="text-gray-600">+91 8879476341</p>
                     <p className="text-gray-600">Monday - Friday, 10AM - 6PM IST</p>
                   </div>
                 </div>
@@ -274,13 +252,8 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-lg">Email</h3>
                     <p className="text-gray-600">
-                      <a href="mailto:info@gtarangenergy.in" className="hover:text-gtarang-blue">
-                        info@gtarangenergy.in
-                      </a>
-                    </p>
-                    <p className="text-gray-600">
-                      <a href="mailto:support@gtarangenergy.in" className="hover:text-gtarang-blue">
-                        support@gtarangenergy.in
+                      <a href="mailto:info@gtarangenergy.com" className="hover:text-gtarang-blue">
+                        info@gtarangenergy.com
                       </a>
                     </p>
                   </div>
@@ -296,55 +269,38 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-lg">Office</h3>
                     <p className="text-gray-600">
-                      412, Pinnacle Business Park<br />
-                      Baner Road, Pune<br />
-                      Maharashtra 411045<br />
+                      Flat 702, Balaji Residency<br />
+                      Sec-15, Kharghar, Raigarh<br />
+                      Maharashtra - 410210<br />
                       India
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            
-            <div className="bg-gray-50 rounded-lg p-6 mb-8 border-l-4 border-gtarang-blue">
-              <h3 className="font-semibold text-lg mb-3">Working Hours</h3>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Monday - Friday</span>
-                  <span className="font-medium">10:00 AM - 6:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Saturday</span>
-                  <span className="font-medium">10:00 AM - 2:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Sunday</span>
-                  <span className="font-medium">Closed</span>
-                </div>
-              </div>
-            </div>
-            
-            <div id="newsletter" className="bg-gradient-to-r from-gtarang-blue to-gtarang-green rounded-lg p-8 md:p-12 text-white">
-              <div className="text-center max-w-3xl mx-auto">
-                <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
-                <p className="text-lg text-gray-100 mb-8">
-                  Stay updated with the latest energy technology trends, industry insights, and company news.
-                </p>
-                <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="flex-grow px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-white text-gray-800"
-                  />
-                  <button type="button" className="bg-white text-gtarang-blue hover:bg-gray-100 py-3 px-6 rounded-md font-medium transition-colors">
-                    Subscribe
-                  </button>
-                </form>
-                <p className="text-sm text-gray-100 mt-4">
-                  We respect your privacy and will never share your information.
-                </p>
-              </div>
-            </div>
+          </div>
+        </div>
+
+        {/* Newsletter Section */}
+        <div id="newsletter" className="bg-gray-50 rounded-lg p-8 md:p-12">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Stay updated with the latest technology trends, industry insights, and company news.
+            </p>
+            <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-grow px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gtarang-blue"
+              />
+              <button type="button" className="btn btn-primary py-3 px-6">
+                Subscribe
+              </button>
+            </form>
+            <p className="text-sm text-gray-500 mt-4">
+              We respect your privacy and will never share your information.
+            </p>
           </div>
         </div>
       </div>
