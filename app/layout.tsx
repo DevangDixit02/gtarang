@@ -8,8 +8,15 @@ import ChatBot from './components/ChatBot';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Gtarang Energy Solutions - Tech Consulting Services',
-  description: 'Premium tech consulting services for energy solutions and more.',
+  title: 'GTarang Solutions - Technology Consulting Services',
+  description: 'Specialized consulting in Robotics, AI, Warehouse Automation, and Satellite Technology',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
+  manifest: '/site.webmanifest',
+  viewport: 'width=device-width, initial-scale=1',
+  keywords: 'robotics, AI, automation, satellite technology, consulting, tech solutions, India',
 };
 
 export default function RootLayout({
