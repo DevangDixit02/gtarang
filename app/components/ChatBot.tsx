@@ -130,7 +130,18 @@ export default function ChatBot() {
                   } max-w-[80%]`}
                 >
                   {message.type === 'bot' ? (
-                    <ReactMarkdown className="prose prose-sm">{message.content}</ReactMarkdown>
+                    <ReactMarkdown 
+                      components={{
+                        p: ({node, ...props}) => <p className="mb-2 last:mb-0" {...props} />,
+                        ul: ({node, ...props}) => <ul className="list-disc pl-4 mb-2" {...props} />,
+                        ol: ({node, ...props}) => <ol className="list-decimal pl-4 mb-2" {...props} />,
+                        li: ({node, ...props}) => <li className="mb-1" {...props} />,
+                        a: ({node, ...props}) => <a className="text-india-blue underline" {...props} />,
+                        strong: ({node, ...props}) => <strong className="font-bold" {...props} />
+                      }}
+                    >
+                      {message.content}
+                    </ReactMarkdown>
                   ) : (
                     message.content
                   )}
@@ -140,7 +151,8 @@ export default function ChatBot() {
             {isLoading && (
               <div className="text-left mb-4">
                 <div className="inline-block p-3 rounded-lg bg-white border border-gray-200 text-gray-700">
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-2 items-center">
+                    <span className="text-xs text-gray-500 mr-2">GTarang AI is typing</span>
                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
